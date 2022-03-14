@@ -1,0 +1,6 @@
+# Config stuff
+settings.php
+
+# Temp
+vendor/
+.phplint-cache

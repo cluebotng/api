@@ -1,0 +1,7 @@
+<?PHP
+
+    static $mw_mysql_host = '';
+    static $mw_mysql_port = 3306;
+    static $mw_mysql_user = '';
+    static $mw_mysql_pass = '';
+    static $mw_mysql_schema = '';

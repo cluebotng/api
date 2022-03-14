@@ -1,0 +1,19 @@
+{
+    "name": "cluebotng/report",
+    "description": "ClueBot NG - API Interface",
+    "require-dev": {
+        "overtrue/phplint": "@stable",
+        "squizlabs/php_codesniffer": "@stable",
+        "phpmd/phpmd" : "@stable"
+    },
+    "require": {
+        "monolog/monolog": "^1.17",
+        "mediawiki/oauthclient": "^1.0"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "license": "GNU General Public License"
+}
