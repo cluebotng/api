@@ -245,19 +245,21 @@ class ApiModuleTrainingData extends ApiModule
             )));
         }
 
-        $revision_user = $this->getUserData($revision_row['actor_name'], $revision_row['rev_timestamp']);
+        $rev_timestamp = gmmktime(
+            (int)substr($revision_row['rev_timestamp'], 8, 2),
+            (int)substr($revision_row['rev_timestamp'], 10, 2),
+            (int)substr($revision_row['rev_timestamp'], 12, 2),
+            (int)substr($revision_row['rev_timestamp'], 4, 2),
+            (int)substr($revision_row['rev_timestamp'], 6, 2),
+            (int)substr($revision_row['rev_timestamp'], 0, 4)
+        )
+
+        $revision_user = $this->getUserData($revision_row['actor_name'], $rev_timestamp);
         $data = array(
             'current' => array(
                 'id' => (int)$revision_row['rev_id'],
                 'minor' => (bool)$revision_row['rev_minor_edit'],
-                'timestamp' => gmmktime(
-                    (int)substr($revision_row['rev_timestamp'], 8, 2),
-                    (int)substr($revision_row['rev_timestamp'], 10, 2),
-                    (int)substr($revision_row['rev_timestamp'], 12, 2),
-                    (int)substr($revision_row['rev_timestamp'], 4, 2),
-                    (int)substr($revision_row['rev_timestamp'], 6, 2),
-                    (int)substr($revision_row['rev_timestamp'], 0, 4)
-                ),
+                'timestamp' => $rev_timestamp,
                 'comment' => $revision_row['comment_text'],
                 'user' => $revision_user,
             ),
