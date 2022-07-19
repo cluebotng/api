@@ -20,7 +20,7 @@ function cleanup_on_exit()
     global $mw_mysql;
     @mysql_close($mw_mysql);
 }
-register_shutdown_function('cleanup_on_exit');
+register_shutdown_function('\\ApiInterface\\cleanup_on_exit');
 
 header('Content-Type: application/json');
 if (array_key_exists('action', $_REQUEST) && ($module = ApiModule::find($_REQUEST['action']))) {
