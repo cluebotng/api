@@ -252,7 +252,7 @@ class ApiModuleTrainingData extends ApiModule
             (int)substr($revision_row['rev_timestamp'], 4, 2),
             (int)substr($revision_row['rev_timestamp'], 6, 2),
             (int)substr($revision_row['rev_timestamp'], 0, 4)
-        )
+        );
 
         $revision_user = $this->getUserData($revision_row['actor_name'], $rev_timestamp);
         $data = array(
